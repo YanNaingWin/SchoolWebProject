@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'http://localhost/';
+const API_ENDPOINT = 'http://localhost:8000/';
 
 const axios = require('axios');
 module.exports.getProducts = function (callback) {
@@ -15,15 +15,16 @@ module.exports.getProducts = function (callback) {
         callback(error, null);
     });
 }
-module.exports.addCategory = function (businessId, categoryName, variants, callback) {
-    let url = API_ENDPOINT + "item/addCategory";
+module.exports.addProducts = function (title, description, price, availability, callback) {
+    let url = API_ENDPOINT + "products";
     axios({
         method: 'post',
         url: url,
         data: {
-            'businessId': businessId,
-            'categoryName': categoryName,
-            'variants': variants
+            'title': title,
+            'description': description,
+            'price': price,
+            'availability' : availability,
         },
         timeout: 5000,
     }).then((response) => {

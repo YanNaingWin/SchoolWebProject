@@ -57,6 +57,17 @@ class App extends Component {
     dal.getProducts((err,response) => {
       console.log(response);
     });
+    let title = "the ninth scent";
+    let description = "dslajflkjsdalkfjkl  kljsdaklfjlk jflksdajflkj jlkdsajfkljsda jlasdfj";
+    let price = 10000;
+    let avaiability = true;
+
+    dal.addProducts(title, description, price, avaiability, (err, response) => {
+ 
+        console.log(response);
+   
+    });
+
     return (
       <IntlProvider
           locale="a"
